@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+/* Re-enable when DarkMode scheme has been figured out */
+/* 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+*/
+body {
+  color: rgb(var(--foreground-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* For preventing the blue highlight color box on tap(click) */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.auto-row {
+  -webkit-margin-before: auto;
+  margin-block-start: auto;
+}
+
+/* Nprogress bar Custom Styling (force) : STARTS */
+#nprogress .bar {
+  background-color: rgba(0, 89, 255, 0.7) !important;
+  height: 3px !important;
+}
+.dark #nprogress .bar {
+  background: #fff !important;
+}
+#nprogress .peg {
+  box-shadow: none !important;
+}
+/* Nprogress bar Custom Styling (force) : ENDS */
+
+
+@layer components {
+  .top-nav-link {
+    @apply list-none mx-1 px-3 py-1 border-black dark:border-white transition-all duration-200 hover:rounded-md hover:bg-gray-100 dark:hover:bg-darkSecondary cursor-pointer text-lg font-semibold select-none sm:text-sm md:text-base;
+  }
+
+  .title_of_page {
+    @apply text-center text-xl font-bold  dark:bg-darkPrimary dark:text-gray-100;
+  }
+  .icon {
+    @apply text-2xl sm:text-3xl m-1 transform duration-200 lg:hover:scale-150 text-zinc-500 hover:text-zinc-800 dark:hover:text-white cursor-pointer;
+  }
+
+  .page_container {
+    @apply p-5 md:px-24 pb-10 dark:bg-darkPrimary dark:text-gray-200 grid gap-6 grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5;
+  }
+
+  .user_reaction {
+    @apply flex font-semibold items-center cursor-pointer w-full justify-center sm:justify-start sm:w-auto space-x-1 text-base;
+  }
+  .clickable_button {
+    @apply transform duration-100 active:scale-90 lg:hover:scale-105;
+  }
+
+  .home-section-container {
+    @apply flex gap-2 overflow-x-scroll p-5 md:px-24 w-full min-h-[200px] select-none snap-x lg:snap-none;
+  }
+  .home-content-section {
+    @apply relative min-w-[250px] xl:min-w-[300px] break-words shadow shadow-black/20 dark:shadow-white/20 dark:bg-darkSecondary ring-gray-400 rounded-xl p-3 cursor-pointer select-none  lg:hover:scale-105 scale-95 transition bg-white snap-center lg:snap-align-none md:first:ml-24 md:last:mr-24;
+  }
+  .hover-slide-animation {
+    @apply relative overflow-hidden before:absolute before:h-full before:w-40 before:bg-stone-900 dark:before:bg-gray-50 before:opacity-10 dark:before:opacity-5 before:-right-10 before:-z-10 before:rotate-[20deg] before:scale-y-150 before:top-4 hover:before:scale-[7] before:duration-700;
+  }
+  .pageTop {
+    @apply mt-[44px] md:mt-[60px] max-w-4xl 2xl:max-w-5xl 3xl:max-w-7xl relative mx-auto p-4 mb-10 text-neutral-900 dark:text-neutral-200;
+  }
+
+}
+
+@layer base {
+  body {
+    @apply font-inter bg-darkWhite;
+  }
+  button {
+    @apply outline-none;
+  }
+  hr {
+    @apply !mx-auto !w-1/2 h-0.5 !bg-gray-700 dark:!bg-gray-300 border-0 !rounded-full;
+  }
+
+  table {
+    @apply !border-collapse text-left;
+  }
+
+  table thead tr > th,
+  table tbody tr > td {
+    @apply !p-2 border border-gray-400 align-middle;
+  }
+
+  table thead tr > th {
+    @apply text-black dark:text-white;
+  }
+
+  table thead tr {
+    @apply align-text-top;
+  }
+  table th {
+    @apply font-bold;
+  }
+  table a {
+    @apply !text-blue-500 dark:!text-blue-400;
+  }
+
+  strong {
+    @apply !text-black dark:!text-white !font-bold;
+  }
+
+}
+
+@layer utilities {
+  /* Hiding the arrows in the input number */
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
