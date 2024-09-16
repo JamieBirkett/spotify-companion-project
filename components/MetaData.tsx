@@ -77,7 +77,7 @@ export default function MetaData({
             type: "image/jpeg",
           },
         ],
-        siteName: "now-playing-frame.vercel.app",
+        siteName: "spotify-companion.vercel.app",
       }}
     />
   );
